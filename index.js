@@ -6,6 +6,7 @@
 
 const inquirer = require("inquirer");
 const { Circle, Triangle, Square } = require("./lib/shapes");
+const LogoText = require("./lib/text")
 
 function main() {
   inquirer
@@ -20,6 +21,17 @@ function main() {
         type: "input",
         message: "Enter logo shape color",
         name: "shapeColor",
+      },
+      {
+        type: 'input',
+        message: 'Enter your 3 character logo text',
+        name: 'text',
+        maxLength:3
+      },
+      {
+         type: 'input',
+         message: 'Enter text color',
+         name: 'textColor' 
       },
     ])
     .then((answers) => {
@@ -41,7 +53,12 @@ function main() {
       console.log(shape.render());
 
       
-    });
+    })
+    .then((answers) => {
+    let text; 
+    text = new LogoText(answers.text, answers.textColor)
+});
+      
 }
 
 main();
