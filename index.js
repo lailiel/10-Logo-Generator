@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const logoSVG = require("./lib/generateLogo");
-const { Circle, Triangle, Square } = require("./lib/shapes");
+const { Circle, Triangle, Square, Diamond } = require("./lib/shapes");
 
 
 function main() {
@@ -10,12 +10,12 @@ function main() {
       {
         type: "list",
         message: "Select a logo shape",
-        choices: ["circle", "triangle", "square"],
+        choices: ["circle", "triangle", "square", "diamond"],
         name: "shape",
       },
       {
         type: "input",
-        message: "Enter logo shape color",
+        message: "Enter logo shape color(keyword or #code)",
         name: "shapeColor",
       },
       {
@@ -31,7 +31,7 @@ function main() {
       },
       {
         type: "input",
-        message: "Enter text color",
+        message: "Enter text color(keyword or #code)",
         name: "textColor",
       },
     ])
@@ -48,6 +48,10 @@ function main() {
 
       if (answers.shape == "square") {
         shape = new Square(answers.shapeColor);
+      }
+
+      if (answers.shape == "diamond") {
+        shape = new Diamond(answers.shapeColor)
       }
 
       const svg = logoSVG({
