@@ -23,10 +23,10 @@ function main() {
         message: "Enter your 3 character logo text",
         name: "text",
         validate: (input) => {
-          if (input.length === 3) {
+          if (input.length <= 3) {
             return true;
           }
-          return `Logo must be 3 characters`;
+          return `Text limited to 3 characters`;
         },
       },
       {
