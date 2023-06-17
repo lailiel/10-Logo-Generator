@@ -1,6 +1,7 @@
 
       <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="50 0, 100 80, 0 80" fill="orange" />
-      <text x="50" y="50" dominant-baseline="middle" text-anchor= "middle" fill="blue">OPE</text>
+      <g transform="translate(50%, 50%)"/>
+      <polygon points="150, 18 244, 182 56, 182" fill="green" />
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor= "middle" fill="yellow">OPE</text>
       </svg>
       
