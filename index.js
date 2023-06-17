@@ -1,12 +1,8 @@
-// const CLI = require('./lib/cli.js');
-
-// const cli = new CLI();
-
-// cli.run();
-
 const inquirer = require("inquirer");
+const fs = require("fs");
+const logoSVG = require("./lib/generateLogo");
 const { Circle, Triangle, Square } = require("./lib/shapes");
-const LogoText = require("./lib/text")
+
 
 function main() {
   inquirer
@@ -23,15 +19,20 @@ function main() {
         name: "shapeColor",
       },
       {
-        type: 'input',
-        message: 'Enter your 3 character logo text',
-        name: 'text',
-        maxLength:3
+        type: "input",
+        message: "Enter your 3 character logo text",
+        name: "text",
+        validate: (input) => {
+          if (input.length === 3) {
+            return true;
+          }
+          return `Logo must be 3 characters`;
+        },
       },
       {
-         type: 'input',
-         message: 'Enter text color',
-         name: 'textColor' 
+        type: "input",
+        message: "Enter text color",
+        name: "textColor",
       },
     ])
     .then((answers) => {
@@ -49,16 +50,22 @@ function main() {
         shape = new Square(answers.shapeColor);
       }
 
-      console.log(shape);
-      console.log(shape.render());
+      const svg = logoSVG({
+        shape: shape.render(),
+        text: answers.text,
+        textColor: answers.textColor,
+      });
 
-      
+      fs.writeFile("logo.svg", svg.render(), (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Generated logo.svg");
+        }
+      });
     })
-    .then((answers) => {
-    let text; 
-    text = new LogoText(answers.text, answers.textColor)
-});
-      
+
+    .catch((err) => console.error(err));
 }
 
 main();
