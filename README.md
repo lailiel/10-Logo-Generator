@@ -5,5 +5,5 @@ Logo Generating App
 TO DO
 
 -videos - add to assets folder
----for functionality
+---functionality
 ---passing all tests
