@@ -3,5 +3,10 @@
       <g transform="translate(50%, 50%)"/>
       <circle cx="150" cy="100" r="100" fill="red" />
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor= "middle" fill="purple">ABC</text>
+      <style>
+        text{
+          font: 35px Verdana, Helvetica, Arial, sans-serif;
+        }
+        </style>
       </svg>
       

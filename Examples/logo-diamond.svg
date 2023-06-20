@@ -3,5 +3,10 @@
       <g transform="translate(50%, 50%)"/>
       <polygon points="50 100, 150 0, 250 100, 150 200" fill="#FFC300" />
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor= "middle" fill="#C4CA0E ">XYZ</text>
+      <style>
+        text{
+          font: 35px Verdana, Helvetica, Arial, sans-serif;
+        }
+        </style>
       </svg>
       
